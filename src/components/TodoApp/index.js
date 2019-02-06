@@ -3,7 +3,8 @@ import TabBar from '../TabBar'
 import TabBarItem from '../TabBar/TabBarItem'
 import TodoList from '../TodoList'
 
-import AddButton from '../Button'
+import AddField from '../AddField'
+import AddButton from '../AddButton'
 
 import './index.css'
 
@@ -42,12 +43,37 @@ export default class TodoApp extends Component {
         },
       ],
       newTodo: '',
-      activeTab: 0
+      activeTab: 0,
+      isCreating: false
+    }
+  }
+
+  onAddFieldChange(ev) {
+    this.setState({
+      newTodo: ev.target.value
+    })
+  }
+
+  onAddFieldKeyPress(ev) {
+    console.log("ds", ev.key)
+    if (ev.key == "Enter") {
+      const newArr = [{
+        text: this.state.newTodo,
+        done: false
+      }, ...this.state.todos]
+     
+     return this.setState({
+        isCreating: false,
+        newTodo: '',
+        todos: newArr
+      })
     }
   }
 
   addTodo () {
-
+    this.setState({
+      isCreating: !this.state.isCreating
+    })
   }
 
   switchTabBar(tabVal) {
@@ -82,7 +108,9 @@ export default class TodoApp extends Component {
   }
 
   render() {
-    const { activeTab, todos } = this.state
+    const { activeTab, todos, newTodo } = this.state
+    console.log("dasdas", newTodo)
+
     return (
       <div className="todo-app">
        <TabBar>
@@ -100,10 +128,19 @@ export default class TodoApp extends Component {
           />
        </TabBar>
 
+      {
+        this.state.isCreating && (
+          <AddField 
+            newTodo={this.state.newTodo} 
+            onAddFieldChange={this.onAddFieldChange.bind(this)}
+            onAddFieldKeyPress={this.onAddFieldKeyPress.bind(this)}
+          />
+        )
+      }
        <TodoList data={this.showCurrentTabTodos()} />
        
         <div className="add-btn-wrapper">
-          <AddButton addTodo={this.addTodo} />
+          <AddButton addTodo={this.addTodo.bind(this)} />
         </div>
       </div>
     )

@@ -4,6 +4,6 @@ import './index.css'
 
 export default class Button extends Component {
   render() {
-    return <a className="add-btn">+</a>
+    return <a onClick={this.props.addTodo} className="add-btn">+</a>
   }
 }
