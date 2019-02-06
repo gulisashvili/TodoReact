@@ -55,7 +55,6 @@ export default class TodoApp extends Component {
   }
 
   onAddFieldKeyPress(ev) {
-    console.log("ds", ev.key)
     if (ev.key == "Enter") {
       const newArr = [{
         text: this.state.newTodo,

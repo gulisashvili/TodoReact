@@ -10,6 +10,7 @@ export default class AddField extends Component {
         <input 
           type="text" 
           className="add-field-input" 
+          placeholder="Add New Todo"
           value={newTodo}
           onChange={(ev)=> onAddFieldChange(ev)}
           onKeyPress={(ev)=> onAddFieldKeyPress(ev)}
