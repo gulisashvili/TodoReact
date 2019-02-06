@@ -1,0 +1,14 @@
+.todo-app {
+  position: relative;
+  width: 450px;
+  height: 600px;
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.add-btn-wrapper {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+}

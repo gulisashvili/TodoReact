@@ -1,0 +1,16 @@
+.add-btn {
+  padding: 30px;
+  border-radius: 50%;
+  font-family: monospace, sans-serif;
+  font-size: 40px;
+  padding: 13px 24px;
+  background-color: #fdab61;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.add-btn:hover {
+  background-color: #efa766;
+}

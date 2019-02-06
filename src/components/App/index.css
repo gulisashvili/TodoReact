@@ -1,0 +1,21 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #86a3e7, #73abe9, #61b2e8, #46b8e3, #34bdd9, #35c1cc, #47c4bc);
+}

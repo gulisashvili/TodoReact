@@ -1,0 +1,14 @@
+.tab-bar-item {
+  flex: 1;
+  text-align: center;
+  padding: 25px 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-right: 2px solid #dadada;
+  border-bottom: 2px solid #dadada;
+
+}
+.tab-bar-item:last-child {
+  border-right: 2px solid transparent;
+}
