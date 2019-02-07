@@ -12,3 +12,14 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+.clear-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 30px;
+}
+
+.clear-text {
+  color: #bc44e0;
+  cursor: pointer;
+}

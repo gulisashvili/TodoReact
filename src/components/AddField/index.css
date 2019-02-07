@@ -6,6 +6,7 @@
 .add-field-input {
   width: 100%;
   border: none;
+  border-radius: 5px;
   outline: none;
   height: 50px;
   padding: 10px 20px;

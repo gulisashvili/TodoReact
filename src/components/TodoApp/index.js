@@ -110,6 +110,14 @@ export default class TodoApp extends Component {
     })
   }
 
+  clearDoneTodos() {
+    const newTodos = this.state.todos.filter(item=> !item.done)
+
+    return this.setState({
+      todos: newTodos
+    })
+  }
+
   getColor(tabVal) {
     return this.state.activeTab == tabVal ? '#ba83ca': '#dadada'
   }
@@ -148,6 +156,18 @@ export default class TodoApp extends Component {
           />
        </TabBar>
 
+       {
+         activeTab == 1 && (
+            <div className="clear-wrapper">
+              <span 
+                className="clear-text" 
+                onClick={this.clearDoneTodos.bind(this)}>
+                 clear 
+              </span>
+            </div>
+          )
+       }
+
       {
         this.state.isCreating && (
           <AddField 
@@ -162,6 +182,7 @@ export default class TodoApp extends Component {
          toggle={this.toggleTaskStatus.bind(this)} 
       />
        
+
         <div className="add-btn-wrapper">
           <AddButton addTodo={this.addTodo.bind(this)} />
         </div>
