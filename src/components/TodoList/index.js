@@ -5,7 +5,7 @@ import './index.css'
 
 export default class TodoList extends Component {
   render () {
-    const {data, toggle} = this.props
+    const {data, toggle, isInEditMode, updateText} = this.props
 
     return (
       <div className="todo-list">
@@ -17,6 +17,8 @@ export default class TodoList extends Component {
               toggle={toggle}
               id={item.id}
               key={i}
+              isInEditMode={isInEditMode}
+              updateText={updateText}
             />
           })
         }

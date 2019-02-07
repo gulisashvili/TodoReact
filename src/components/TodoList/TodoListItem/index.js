@@ -4,7 +4,7 @@ import './index.css'
 
 export default class TodoListItem extends Component {
   render() {
-    const {done, text, toggle, id} = this.props
+    const {done, text, toggle, id, updateText} = this.props
 
     const checkBoxStyle = {
       background: done ? '#ba83ca': '#f1f1f1'
@@ -23,12 +23,14 @@ export default class TodoListItem extends Component {
         >
           {done}
         </span>
-        <span 
-          className="todo-list-item-text"
-          style={listItemTextStyle}
-        >
-          {text}
-        </span>
+        
+        <input 
+          type="text" 
+          className="todo-list-item-input"
+          value={text} 
+          onChange={(e)=> updateText(id, e.target.value)}
+        />
+          
       </div>
     )
   }

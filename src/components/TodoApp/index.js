@@ -81,6 +81,20 @@ export default class TodoApp extends Component {
     })
   }
 
+  updateTodoItemText(id, value) {
+    const todos = this.state.todos.map(item=> {
+      if(item.id == id) {
+        return {
+          ...item,
+          text: value
+        }
+      }
+      return item
+    })
+
+    return this.setState({todos})
+  }
+
   switchTabBar(tabVal) {
     const {activeTab} = this.state
 
@@ -179,7 +193,8 @@ export default class TodoApp extends Component {
       }
        <TodoList 
          data={this.showCurrentTabTodos()}
-         toggle={this.toggleTaskStatus.bind(this)} 
+         toggle={this.toggleTaskStatus.bind(this)}
+         updateText={this.updateTodoItemText.bind(this)}
       />
        
 
