@@ -23,23 +23,28 @@ export default class TodoApp extends Component {
       todos: [
         {
           text: 'Do Yoga',
-          done: false
+          done: false,
+          id: 1
         },
         {
           text: 'Work on React',
-          done: true
+          done: true,
+          id: 2
         },
         {
           text: 'Swim',
-          done: false
+          done: false,
+          id: 3
         },
         {
           text: 'Learn Algorithms',
-          done: false
+          done: false,
+          id: 4
         },
         {
           text: 'Read 50 pages',
-          done: true
+          done: true,
+          id: 5
         },
       ],
       newTodo: '',
@@ -58,7 +63,8 @@ export default class TodoApp extends Component {
     if (ev.key == "Enter") {
       const newArr = [{
         text: this.state.newTodo,
-        done: false
+        done: false,
+        id: Date.now()
       }, ...this.state.todos]
      
      return this.setState({
@@ -88,6 +94,22 @@ export default class TodoApp extends Component {
 
   }
 
+  toggleTaskStatus(id) {
+    const newArr = this.state.todos.map(item=> {
+      if(item.id == id) {
+        return {
+          ...item,
+          done: !item.done
+        }
+      }
+      return item
+    })
+
+    this.setState({
+      todos: newArr
+    })
+  }
+
   getColor(tabVal) {
     return this.state.activeTab == tabVal ? '#ba83ca': '#dadada'
   }
@@ -108,7 +130,6 @@ export default class TodoApp extends Component {
 
   render() {
     const { activeTab, todos, newTodo } = this.state
-    console.log("dasdas", newTodo)
 
     return (
       <div className="todo-app">
@@ -136,7 +157,10 @@ export default class TodoApp extends Component {
           />
         )
       }
-       <TodoList data={this.showCurrentTabTodos()} />
+       <TodoList 
+         data={this.showCurrentTabTodos()}
+         toggle={this.toggleTaskStatus.bind(this)} 
+      />
        
         <div className="add-btn-wrapper">
           <AddButton addTodo={this.addTodo.bind(this)} />

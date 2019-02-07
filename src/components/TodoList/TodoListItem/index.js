@@ -4,7 +4,7 @@ import './index.css'
 
 export default class TodoListItem extends Component {
   render() {
-    const {done, text} = this.props
+    const {done, text, toggle, id} = this.props
 
     const checkBoxStyle = {
       background: done ? '#ba83ca': '#f1f1f1'
@@ -16,7 +16,11 @@ export default class TodoListItem extends Component {
 
     return (
       <div className="todo-list-item">
-        <span className="todo-list-item-check" style={checkBoxStyle}>
+        <span 
+          className="todo-list-item-check" 
+          style={checkBoxStyle}
+          onClick={()=> toggle(id)}
+        >
           {done}
         </span>
         <span 
