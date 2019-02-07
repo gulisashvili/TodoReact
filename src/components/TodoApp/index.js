@@ -75,6 +75,12 @@ export default class TodoApp extends Component {
     }
   }
 
+  onDeleteClick(id) {
+    const todos = this.state.todos.filter(item=> item.id != id)
+
+    return this.setState({todos})
+  }
+
   addTodo () {
     this.setState({
       isCreating: !this.state.isCreating
@@ -191,10 +197,12 @@ export default class TodoApp extends Component {
           />
         )
       }
+
        <TodoList 
          data={this.showCurrentTabTodos()}
          toggle={this.toggleTaskStatus.bind(this)}
          updateText={this.updateTodoItemText.bind(this)}
+         onClick={this.onDeleteClick.bind(this)}
       />
        
 

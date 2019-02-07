@@ -8,18 +8,13 @@
 .todo-list-item-check {
   display: inline-block;
   margin-right: 20px;
-  width: 20px;
+  width: 22px;
   height: 20px;
   background: #ba83ca;
   border: 5px solid #f1f1f1;
   outline: 2px solid #e3e3e3;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-}
-
-.todo-list-item-text {
-  font-size: 20px;
-  color: #636e72;
 }
 
 .todo-list-item-input {
@@ -31,4 +26,8 @@
   background: transparent;
   font-family: 'Work Sans', sans-serif;
   outline-color: #ba83ca;
+}
+
+.todo-list-item-delete {
+  align-self: flex-end;
 }
